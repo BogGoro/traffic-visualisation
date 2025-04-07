@@ -2,26 +2,26 @@ import time
 import requests
 import pandas as pd
 
-SERVER_URL = "http://localhost:5000/receive"
+SERVER_URL = "http://backend:5000/receive"
 
 def send_packages(csv_file):
     df = pd.read_csv(csv_file)
-    df['timestamp'] = pd.to_datetime(df['timestamp'])
-    df = df.sort_values(by='timestamp')
+    df['Timestamp'] = pd.to_datetime(df['Timestamp'])
+    df = df.sort_values(by='Timestamp')
 
     for i in range(len(df)):
         package = df.iloc[i]
         if i > 0:
             # Wait based on the time diff from previous package
-            prev_time = df.iloc[i - 1]['timestamp']
-            delay = (package['timestamp'] - prev_time).total_seconds()
+            prev_time = df.iloc[i - 1]['Timestamp']
+            delay = (package['Timestamp'] - prev_time).total_seconds()
             time.sleep(max(0, delay))
 
         data = {
-            "ip": package["ip"],
-            "latitude": float(package["latitude"]),
-            "longitude": float(package["longitude"]),
-            "timestamp": package["timestamp"].strftime("%Y-%m-%d %H:%M:%S"),
+            "ip": package["ip address"],
+            "latitude": float(package["Latitude"]),
+            "longitude": float(package["Longitude"]),
+            "timestamp": package["Timestamp"].strftime("%Y-%m-%d %H:%M:%S"),
             "suspicious": int(package["suspicious"])
         }
 
