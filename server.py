@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import time
 
 app = Flask(__name__)
 CORS(app)  # Allow frontend to connect
@@ -17,7 +16,7 @@ def receive():
 
 @app.route("/data", methods=["GET"])
 def get_data():
-    return jsonify(received_data[-50:])  # last 50 for live view
+    return jsonify(received_data)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
