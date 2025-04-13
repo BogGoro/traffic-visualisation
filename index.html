@@ -1,54 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Web Traffic Visualisation</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <header>
-    <h1>🌐 Live Web Traffic Globe</h1>
-    <p>Tracking incoming traffic from around the world</p>
-  </header>
-  
-  <main>
-    <div id="globeViz" class="globe-container"></div>
-    <aside>
-      <h2>Top Suspicious IPs</h2>
-      <table id="ipTable">
-        <thead>
-          <tr>
-            <th>IP</th>
-            <th>Count</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-
-      <h2>Activity</h2>
-      <div class="time-select">
-        <div>
-          <label>From:</label>
-          <select id="fromMinute"></select>:
-          <select id="fromSecond"></select>
-        </div>
-        <div>
-          <label>To:</label>
-          <select id="toMinute"></select>:
-          <select id="toSecond"></select>
-        </div>
-        <button id="updateBtn">Update</button>
-      </div>
-
-      <canvas id="activityChart" width="300" height="200"></canvas>
-    </aside>
-  </main>
-
-  <footer>
-    <p>Last updated: <span id="timestamp">--</span></p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <title>Web Traffic Visualisation</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ </head>
+ <body>
+   <header>
+     <h1>🌐 Live Web Traffic Globe</h1>
+     <p>Tracking incoming traffic from around the world</p>
+   </header>
+   
+   <main>
+     <div id="globeViz" class="globe-container"></div>
+     <aside>
+       <h2>Top Suspicious IPs</h2>
+       <table id="ipTable">
+         <thead>
+           <tr>
+             <th>IP</th>
+             <th>Count</th>
+           </tr>
+         </thead>
+         <tbody></tbody>
+       </table>
+     </aside>
+   </main>
+ 
+   <footer>
+     <p>Last updated: <span id="timestamp">--</span></p>
+   </footer>
+ 
+   <script src="script.js"></script>
+ </body>
+ </html>
